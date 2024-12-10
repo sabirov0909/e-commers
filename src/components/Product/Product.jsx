@@ -12,7 +12,7 @@ const Product = () => {
 
     const fetchProducts = async () => {
         try {
-            const response = await axios.get('http://localhost:1337/api/products');
+            const response = await axios.get('http://localhost:1337/api/products?populate=*');
             setProducts(response.data);
             setLoading(false);
         } catch (err) {
@@ -30,18 +30,14 @@ const Product = () => {
 
     return (
         <div className="product">
-            <nav className="product_links">
-                <a href="#NewArrival">New Arrival</a>
-                <a href="#Bestseller">Bestseller</a>
-                <a href="#FeaturedProducts">Featured Products</a>
-            </nav>
+            <h1>Products</h1>
             <div className="product_grid">
-                {products.data.map((product) => (
+                {products.data.slice(0, 8).map((product) => (
                     <div className="product_card" key={product.id}>
                         <img
                             src={
-                                product.attributes?.image?.data?.attributes?.url
-                                    ? `http://localhost:1337${product.attributes.image.data.attributes.url}`
+                                product.image.url
+                                    ? `http://localhost:1337${product.image.url}`
                                     : "placeholder.jpg"
                             }
                             alt={product?.name || "Product"}
