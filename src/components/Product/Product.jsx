@@ -1,6 +1,8 @@
 import React, {useState, useEffect} from "react";
 import "./product.css";
 import axios from "axios";
+import {Link} from "react-router-dom";
+
 
 const Product = () => {
     const [products, setProducts] = useState([]);
@@ -32,6 +34,7 @@ const Product = () => {
         <div className="product">
             <h1>Products</h1>
             <div className="product_grid">
+
                 {products.data.slice(0, 8).map((product) => (
                     <div className="product_card" key={product.id}>
                         <img
@@ -45,7 +48,9 @@ const Product = () => {
                         />
                         <h3 className="product_title">{product?.name}</h3>
                         <p className="product_price">${product?.price}</p>
-                        <button className="product_button">Buy Now</button>
+                        <Link to={`/product/${product.documentId}`}>
+                            <button className="product_button">Buy Now</button>
+                        </Link>
                     </div>
                 ))}
             </div>

@@ -8,7 +8,6 @@ const CategoryProducts = () => {
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
     const params = useParams()
-    console.log(params)
 
     useEffect(() => {
         fetchProducts();
@@ -63,3 +62,4 @@ const CategoryProducts = () => {
 };
 
 export default CategoryProducts;
+

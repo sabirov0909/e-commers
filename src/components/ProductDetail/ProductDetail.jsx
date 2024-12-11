@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import './ProductDetail.css';
 import imagee from '../../images/Image.png';
 import Screen from '../../icons/Screensize.png'
@@ -13,12 +13,17 @@ import Guaranteed from '../../icons/verify.png'
 import Reviews from "../Reviews/Reviews";
 import Footer from "../Footer/Footer";
 import Navbar from "../Navbar/Navbar";
+import axios from "axios";
+import {useParams} from "react-router-dom";
 
 const ProductDetail = () => {
     const [selectedColor, setSelectedColor] = useState('purple');
     const [selectedStorage, setSelectedStorage] = useState('1TB');
     const [cartItems, setCartItems] = useState(0);
     const [wishlistItems, setWishlistItems] = useState(0);
+    const [product, setProduct] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const params = useParams()
 
     const handleColorChange = (color) => {
         setSelectedColor(color);
@@ -38,29 +43,43 @@ const ProductDetail = () => {
         alert('Product added to wishlist!');
     };
 
+    const fetchProduct = async () => {
+        try {
+            const response = await axios.get(`http://localhost:1337/api/products/${params.id}?populate=*`);
+            setProduct(response.data);
+            setLoading(false);
+        } catch (err) {
+            setLoading(false);
+        }
+    };
+
+    useEffect(() => {
+        fetchProduct()
+    }, []);
+
+
     return (
         <>
-            <Navbar />
+            <Navbar/>
             <br/>
             <br/>
             <div className="product-detail">
                 <div className="breadcrumbs">
-                    Home &gt; Catalog &gt; Smartphones &gt; Apple &gt; iPhone 14 Pro Max
+                    Home &gt; Catalog &gt; Smartphones &gt; Apple &gt; {product?.data?.name}
                 </div>
 
                 <div className="main-info">
                     <div className="product-image">
                         <img
-                            src={imagee}
+                            src={`http://localhost:1337${product?.data?.image?.url}`}
                             alt="Apple iPhone 14 Pro Max"
                         />
                     </div>
 
                     <div className="product-info">
-                        <h1>Apple iPhone 14 Pro Max</h1>
+                        <h1>{product?.data?.name}</h1>
                         <div className="product-price">
-                            <span className="current-price">$1399</span>
-                            <span className="original-price">$1499</span>
+                            <span className="current-price">{product?.data?.price} $</span>
                         </div>
 
                         <div className="options">
@@ -155,15 +174,7 @@ const ProductDetail = () => {
                 <div className="details">
                     <h2>Details</h2>
                     <p>
-                        Just as a book is judged by its cover, the first thing you notice when you pick up a modern
-                        smartphone is the display. Nothing surprising, because advanced technologies allow you to
-                        practically level the display frames and cutouts for the front camera and speaker, leaving no
-                        room
-                        for bold design solutions. And how good that in such realities Apple everything is fine with
-                        displays. Both critics and mass consumers always praise the quality of the picture provided by
-                        the
-                        products of the Californian brand. And last year's 6.7-inch Retina panels, which had ProMotion,
-                        caused real admiration for many.
+                        {product?.data?.description}
                     </p>
                     <div className="info">
                         <h3>Screen</h3>
@@ -212,7 +223,7 @@ const ProductDetail = () => {
             </div>
             <br/>
             <br/>
-            <Footer />
+            <Footer/>
         </>
     );
 };
