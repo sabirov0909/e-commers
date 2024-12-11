@@ -1,5 +1,6 @@
 import React from "react";
 import "./header.css";
+import {Link} from "react-router-dom";
 import banner_phone from "../../images/Iphone Image.png";
 import AirPods from '../../images/naushnik.png'
 import PlayStation from '../../images/PlayStations.png'
@@ -22,20 +23,20 @@ const Header = () => {
                         </p>
                         <button className="banner-button">Shop Now</button>
                     </div>
-                    <a href="https://brostore.uz/products/iphone-14-pro-max?srsltid=AfmBOorhihiAQTv0MJ9LGEQW0fJ8CsNKJ0C0tesIM3cGF65Ao195BsL8">
+                    <Link to={`category-product/2/Phones`}>
                         <div className="banner-image">
                             <img src={banner_phone} alt="iPhone 14 Pro"/>
                         </div>
-                    </a>
+                    </Link>
                 </div>
             </div>
 
             <div className="container">
                 <div className="left-section">
                     <div className="card">
-                        <a href="https://www.apple.com/uz/airpods-max/">
+                        <Link to={`category-product/8/Headphones`}>
                             <img src={AirPods} alt=""/>
-                        </a>
+                        </Link>
                         <h2>Apple AirPods Max</h2>
                         <p>Computational audio. Listen, it's powerful.</p>
                     </div>
@@ -60,9 +61,11 @@ const Header = () => {
 
                 <div className="right-section">
                     <div className="card large">
-                        <a href="https://www.apple.com/uz/mac/">
+                        <Link to={`category-product/10/Computers`}>
                             <img style={{width: '100%'}} src={mac} alt="MacBook Air"/>
-                        </a>
+                        </Link>
+
+
                         <h2>MacBook Air</h2>
                         <p>
                             The new 15-inch MacBook Air makes room for more of what you love

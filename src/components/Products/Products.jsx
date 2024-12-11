@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import './products.css';
 import axios from 'axios';
+import {Link} from "react-router-dom";
 
 const Products = () => {
     const [products, setProducts] = useState([]);
@@ -40,12 +41,14 @@ const Products = () => {
                                     ? `http://localhost:1337${product.image.url}`
                                     : 'placeholder.jpg'
                             }
-                            alt={product.attributes?.name || 'Product'}
+                            alt={product?.name || "Product"}
                             className="products-image"
                         />
                         <h3 className="products-title">{product?.name}</h3>
                         <p className="products-price">${product?.price}</p>
-                        <button className="products-button">Buy Now</button>
+                        <Link to={`/product/${product.documentId}`}>
+                            <button className="product_button">Buy Now</button>
+                        </Link>
                     </div>
                 ))}
             </div>

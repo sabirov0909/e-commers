@@ -1,10 +1,12 @@
 import React from "react";
 import "./popular.css";
+import {Links} from "react-router-dom";
 import popular_product from "../../images/image 39.png";
 import huawei from "../../images/image 12.png";
 import Ipad_Pro from "../../images/image 64.png";
 import Samsung_Galaxy from "../../images/image 41.png";
 import Macbook_Pro from "../../images/MacBook.png";
+import {Link} from "react-router-dom";
 
 const Popular = () => {
     return (
@@ -17,13 +19,13 @@ const Popular = () => {
                             alt="Background"
                             className="background-image"
                         />
-                        <a href="https://consumer.huawei.com/en/wearables/">
+                        <Link to={`category-product/4/Smart%20Watches`}>
                             <img
                                 src={huawei}
                                 alt="Foreground"
                                 className="foreground-image"
                             />
-                        </a>
+                        </Link>
                     </div>
                     <div className="product-info">
                         <h3>Huawei Watch</h3>
@@ -77,13 +79,10 @@ const Popular = () => {
 
                 <div className="product-card">
                     <div className="image-container">
-                        <a href="https://www.apple.com/macbook-pro/">
-                            <img
-                                src={Macbook_Pro}
-                                alt="MacBook Pro"
-                                className="product-image"
-                            />
-                        </a>
+                        <Link to={`category-product/10/Computers`}>
+                            <img src={Macbook_Pro} alt="MacBook Air"/>
+                        </Link>
+
                     </div>
                     <div className="product-info">
                         <h3>MacBook Pro</h3>

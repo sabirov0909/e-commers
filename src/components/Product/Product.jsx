@@ -34,7 +34,6 @@ const Product = () => {
         <div className="product">
             <h1>Products</h1>
             <div className="product_grid">
-
                 {products.data.slice(0, 8).map((product) => (
                     <div className="product_card" key={product.id}>
                         <img

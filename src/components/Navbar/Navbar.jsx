@@ -40,8 +40,6 @@ const Navbar = ({cartCount, user}) => {
                 </nav>
 
                 <div className="navbar-icons">
-                    <img src={icons_i} alt="Favorites"/>
-
                     <Link to="/cart">
                         <div className="cart-icon-container">
                             <img src={icons} alt="Cart" className="cart-icon"/>
