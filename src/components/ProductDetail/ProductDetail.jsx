@@ -63,26 +63,20 @@ const ProductDetail = () => {
             image: `http://localhost:1337${product?.data?.image?.url}`,
         };
 
-        // Get the current cart from localStorage or initialize it as an empty array
         const currentCart = JSON.parse(localStorage.getItem('cart')) || [];
 
-        // Check if the item already exists in the cart (based on id)
         const existingItemIndex = currentCart.findIndex(
             (item) => item.id === cartItem.id
         );
 
         if (existingItemIndex !== -1) {
-            // If the item exists, update the quantity
             currentCart[existingItemIndex].quantity += 1;
         } else {
-            // If it's a new item, add it to the cart
             currentCart.push(cartItem);
         }
 
-        // Save the updated cart to localStorage
         localStorage.setItem('cart', JSON.stringify(currentCart));
 
-        // Update the cart items count (you can either call a function to update the UI or trigger a state update)
         setCartItems(currentCart.length);
 
         alert('Product added to cart!');
