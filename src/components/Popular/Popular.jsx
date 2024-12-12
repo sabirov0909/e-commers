@@ -1,6 +1,5 @@
 import React from "react";
 import "./popular.css";
-import {Links} from "react-router-dom";
 import popular_product from "../../images/image 39.png";
 import huawei from "../../images/image 12.png";
 import Ipad_Pro from "../../images/image 64.png";
@@ -19,13 +18,12 @@ const Popular = () => {
                             alt="Background"
                             className="background-image"
                         />
-                        <Link to={`category-product/4/Smart%20Watches`}>
-                            <img
-                                src={huawei}
-                                alt="Foreground"
-                                className="foreground-image"
-                            />
-                        </Link>
+                        <img
+                            src={huawei}
+                            alt="Foreground"
+                            className="foreground-image"
+                        />
+
                     </div>
                     <div className="product-info">
                         <h3>Huawei Watch</h3>
@@ -34,18 +32,19 @@ const Popular = () => {
                             smartwatch.
                         </p>
                     </div>
-                    <button>Shop Now</button>
+                    <Link to={`category-product/4/Smart%20Watches`}>
+                        <button>Shop Now</button>
+                    </Link>
                 </div>
 
                 <div className="product-card">
                     <div className="image-container">
-                        <a href="https://www.apple.com/uz/ipad-pro/">
-                            <img
-                                src={Ipad_Pro}
-                                alt="iPad Pro"
-                                className="product-image"
-                            />
-                        </a>
+                        <img
+                            src={Ipad_Pro}
+                            alt="iPad Pro"
+                            className="product-image"
+                        />
+
                     </div>
                     <div className="product-info">
                         <h3>iPad Pro</h3>
@@ -54,18 +53,19 @@ const Popular = () => {
                             a stunning Retina display.
                         </p>
                     </div>
-                    <button>Shop Now</button>
+                    <a href="https://www.apple.com/uz/ipad-pro/">
+                        <button>Shop Now</button>
+                    </a>
                 </div>
 
                 <div className="product-card">
                     <div className="image-container">
-                        <a href="https://www.samsung.com/uz_ru/smartphones/">
-                            <img
-                                src={Samsung_Galaxy}
-                                alt="Samsung Galaxy"
-                                className="product-image"
-                            />
-                        </a>
+                        <img
+                            src={Samsung_Galaxy}
+                            alt="Samsung Galaxy"
+                            className="product-image"
+                        />
+
                     </div>
                     <div className="product-info">
                         <h3>Samsung Galaxy</h3>
@@ -74,15 +74,14 @@ const Popular = () => {
                             multitasking capabilities.
                         </p>
                     </div>
-                    <button>Shop Now</button>
+                    <a href="https://www.samsung.com/uz_ru/smartphones/">
+                        <button>Shop Now</button>
+                    </a>
                 </div>
 
                 <div className="product-card">
                     <div className="image-container">
-                        <Link to={`category-product/10/Computers`}>
-                            <img src={Macbook_Pro} alt="MacBook Air"/>
-                        </Link>
-
+                        <img src={Macbook_Pro} alt="MacBook Air"/>
                     </div>
                     <div className="product-info">
                         <h3>MacBook Pro</h3>
@@ -91,11 +90,14 @@ const Popular = () => {
                             yet.
                         </p>
                     </div>
-                    <button>Shop Now</button>
+                    <Link to={`category-product/10/Computers`}>
+                        <button>Shop Now</button>
+                    </Link>
                 </div>
             </div>
         </div>
-    );
+    )
+        ;
 };
 
 export default Popular;
