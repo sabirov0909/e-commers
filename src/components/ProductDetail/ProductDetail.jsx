@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from 'react';
 import './ProductDetail.css';
-import imagee from '../../images/Image.png';
 import Screen from '../../icons/Screensize.png'
 import A16 from '../../icons/Vector.png'
 import Number from '../../icons/smartphone-rotate-2-svgrepo-com 2.png'

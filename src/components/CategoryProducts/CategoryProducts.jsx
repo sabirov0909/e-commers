@@ -3,6 +3,8 @@ import axios from "axios";
 import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
 import {useParams} from "react-router-dom";
+import {Link} from "react-router-dom";
+
 
 const CategoryProducts = () => {
     const [products, setProducts] = useState([]);
@@ -51,7 +53,9 @@ const CategoryProducts = () => {
                             />
                             <h3 className="products-title">{product?.name}</h3>
                             <p className="products-price">${product?.price}</p>
-                            <button className="products-button">Buy Now</button>
+                            <Link to={`/product/${product.documentId}`}>
+                                <button className="products-button">Buy Now</button>
+                            </Link>
                         </div>
                     ))}
                 </div>
