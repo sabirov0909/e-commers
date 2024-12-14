@@ -14,6 +14,7 @@ import Footer from "../Footer/Footer";
 import Navbar from "../Navbar/Navbar";
 import axios from "axios";
 import {useParams} from "react-router-dom";
+import Products from "../Products/Products";
 
 const ProductDetail = () => {
     const [selectedColor, setSelectedColor] = useState('purple');
@@ -245,6 +246,7 @@ const ProductDetail = () => {
                     <Reviews/>
                 </div>
             </div>
+            <Products/>
             <br/>
             <br/>
             <Footer/>

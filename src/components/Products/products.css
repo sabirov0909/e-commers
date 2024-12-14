@@ -87,13 +87,16 @@
     .products-card {
         width: 90%;
     }
+     .products-image {
+        height: 100%;
+    }
 }
 
 
 @media (max-width: 768px) {
     .products-grids {
         grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
+        gap: 50px;
     }
 
     .products-card {
@@ -101,7 +104,7 @@
     }
 
     .products-image {
-        height: 200px;
+        height: 100%;
     }
 }
 
@@ -118,7 +121,7 @@
     }
 
     .products-image {
-        height: 180px;
+        height: 100%;
     }
 
     .products-title {
